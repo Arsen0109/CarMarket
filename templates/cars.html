@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Наші авто{% endblock %}
+{% block head %}
+
+<h1>Наші авто</h1>
+<div class="row row-cols-1 row-cols-s,-2 row-cols-md-3 g-3">
+    {% for car in cars %}
+          <div class="card shadow-sm pt-2">
+                <img src="{{ url_for('static', filename='/images/' + car.image) }}">
+            <div class="card-body">
+                <h3>{{ car.make }}</h3>
+                <p>Модель: {{ car.model }}</p>
+                <p>Рік: {{ car.year }}</p>
+                <p>Ціна: {{ car.price }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
